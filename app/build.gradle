@@ -87,6 +87,7 @@ dependencies {
 
     implementation("io.coil-kt:coil:1.1.1")
     implementation("com.jakewharton.timber:timber:4.7.1")
+    implementation("jp.wasabeef:recyclerview-animators:3.0.0")
 
     kapt("androidx.databinding:databinding-common:4.1.2")
     kapt("com.android.databinding:compiler:3.2.0-alpha10")

@@ -11,13 +11,6 @@
         android:label="@string/app_name"
         tools:layout="@layout/fragment_news">
         <action
-            android:id="@+id/action_article"
-            app:destination="@id/nav_article"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left"
-            app:popEnterAnim="@anim/from_left"
-            app:popExitAnim="@anim/to_right" />
-        <action
             android:id="@+id/action_bookmarks"
             app:destination="@id/nav_bookmarks"
             app:enterAnim="@anim/from_right"
@@ -37,23 +30,21 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <argument
+            android:name="Article"
+            app:argType="com.meazza.news.parcelize.ArticleParcelize" />
     </fragment>
     <fragment
         android:id="@+id/nav_bookmarks"
         android:name="com.meazza.news.ui.bookmarks.BookmarksFragment"
         android:label="@string/bookmarks"
-        tools:layout="@layout/fragment_bookmarks">
-        <action
-            android:id="@+id/action_bookmarksFragment_to_articleFragment"
-            app:destination="@id/nav_article"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left"
-            app:popEnterAnim="@anim/from_left"
-            app:popExitAnim="@anim/to_right" />
-    </fragment>
+        tools:layout="@layout/fragment_bookmarks" />
     <fragment
         android:id="@+id/nav_source"
         android:name="com.meazza.news.ui.source.SourceFragment"
         android:label="@string/source"
         tools:layout="@layout/fragment_source" />
+    <action
+        android:id="@+id/action_article"
+        app:destination="@id/nav_article" />
 </navigation>
