@@ -31,6 +31,5 @@ data class ArticleDto(
         )
     }
 
-    fun toArticle() =
-        Article(author!!, content!!, description!!, publishedAt!!, title!!, url!!, urlToImage!!)
+    fun toArticle() = Article(author, content, description, publishedAt, title, url, urlToImage)
 }

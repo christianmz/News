@@ -1,8 +1,8 @@
 package com.meazza.news.data.repository.ds.remote
 
 import com.meazza.news.business.domain.Article
-import kotlinx.coroutines.flow.Flow
+import com.meazza.news.business.util.Resource
 
 interface RemoteNewsDS {
-    fun getNews(): Flow<List<Article>>
+    suspend fun getNews(): Resource<List<Article>>
 }

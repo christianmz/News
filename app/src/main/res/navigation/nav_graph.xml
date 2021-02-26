@@ -18,6 +18,13 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
     </fragment>
+    <action
+        android:id="@+id/action_article"
+        app:destination="@id/nav_article"
+        app:enterAnim="@anim/from_right"
+        app:exitAnim="@anim/to_left"
+        app:popEnterAnim="@anim/from_left"
+        app:popExitAnim="@anim/to_right" />
     <fragment
         android:id="@+id/nav_article"
         android:name="com.meazza.news.ui.article.ArticleFragment"
@@ -44,7 +51,4 @@
         android:name="com.meazza.news.ui.source.SourceFragment"
         android:label="@string/source"
         tools:layout="@layout/fragment_source" />
-    <action
-        android:id="@+id/action_article"
-        app:destination="@id/nav_article" />
 </navigation>

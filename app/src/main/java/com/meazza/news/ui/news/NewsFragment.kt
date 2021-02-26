@@ -2,15 +2,23 @@ package com.meazza.news.ui.news
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.meazza.news.R
 import com.meazza.news.databinding.FragmentNewsBinding
+import com.meazza.news.ui.adapters.ArticleAdapter
+import com.meazza.news.ui.news.NewsEvents.*
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 
+@AndroidEntryPoint
 class NewsFragment : Fragment(R.layout.fragment_news) {
 
     private val newsViewModel by viewModels<NewsViewModel>()
+    private val mAdapter by lazy { ArticleAdapter }
 
     private var _binding: FragmentNewsBinding? = null
 
@@ -25,7 +33,25 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentNewsBinding.bind(view).apply {
             lifecycleOwner = this@NewsFragment
-            viewModel = newsViewModel
+            adapter = mAdapter
+        }
+
+        newsViewModel.getBreakingNews()
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            newsViewModel.events.collect { events ->
+                when (events) {
+                    is Loading -> {
+                    }
+                    is Failure -> {
+                        Toast.makeText(requireContext(), events.errorText, Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                    is Success -> {
+                        mAdapter.submitList(events.articles)
+                    }
+                }
+            }
         }
     }
 
@@ -36,7 +62,7 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.nav_bookmarks -> {
+            R.id.mn_bookmarks -> {
                 findNavController().navigate(R.id.action_bookmarks)
                 true
             }

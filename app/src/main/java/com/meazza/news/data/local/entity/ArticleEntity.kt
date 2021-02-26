@@ -19,13 +19,13 @@ data class ArticleEntity(
 ) {
     companion object {
         fun fromArticle(article: Article) = ArticleEntity(
-            article.author,
-            article.content,
-            article.description,
-            article.publishedAt,
-            article.title,
-            article.url,
-            article.urlToImage
+            article.author!!,
+            article.content!!,
+            article.description!!,
+            article.publishedAt!!,
+            article.title!!,
+            article.url!!,
+            article.urlToImage!!
         )
     }
 

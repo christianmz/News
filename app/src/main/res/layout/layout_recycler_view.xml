@@ -17,7 +17,7 @@
         android:clipToPadding="false"
         android:paddingTop="4dp"
         android:paddingBottom="64dp"
-        android:setCustomAdapter="@{mAdapter}"
+        app:setAdapter="@{mAdapter}"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/layout_article" />
 </layout>
