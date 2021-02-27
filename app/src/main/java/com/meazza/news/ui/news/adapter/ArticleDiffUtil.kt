@@ -1,4 +1,4 @@
-package com.meazza.news.ui.adapters
+package com.meazza.news.ui.news.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.meazza.news.business.domain.Article

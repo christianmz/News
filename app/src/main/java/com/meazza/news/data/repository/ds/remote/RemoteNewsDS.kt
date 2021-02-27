@@ -5,4 +5,5 @@ import com.meazza.news.business.util.Resource
 
 interface RemoteNewsDS {
     suspend fun getNews(): Resource<List<Article>>
+    suspend fun searchNews(query: String, page: Int, pageSize: Int)
 }

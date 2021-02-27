@@ -3,12 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/mn_bookmarks"
-        android:icon="@drawable/ic_bookmarks"
-        android:title="@string/bookmarks"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/mn_dark_theme"
-        android:title="@string/dark_theme"
-        app:showAsAction="never" />
+        android:id="@+id/mn_search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
 </menu>

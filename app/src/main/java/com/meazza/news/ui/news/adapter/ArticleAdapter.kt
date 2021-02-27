@@ -1,4 +1,4 @@
-package com.meazza.news.ui.adapters
+package com.meazza.news.ui.news.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.meazza.news.business.domain.Article
 import com.meazza.news.databinding.LayoutArticleBinding
-import com.meazza.news.ui.adapters.ArticleAdapter.ArticleHolder
+import com.meazza.news.ui.news.adapter.ArticleAdapter.ArticleHolder
 
 object ArticleAdapter : ListAdapter<Article, ArticleHolder>(ArticleDiffUtil) {
 

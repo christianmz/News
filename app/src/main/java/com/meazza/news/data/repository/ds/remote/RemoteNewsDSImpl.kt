@@ -25,4 +25,8 @@ class RemoteNewsDSImpl @Inject constructor(
             Resource.Error("${e.message}")
         }
     }
+
+    override suspend fun searchNews(query: String, page: Int, pageSize: Int) {
+        service.searchNews(query, page, pageSize)
+    }
 }

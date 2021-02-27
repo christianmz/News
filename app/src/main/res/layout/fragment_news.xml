@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="adapter"
-            type="com.meazza.news.ui.adapters.ArticleAdapter" />
+            type="com.meazza.news.ui.news.adapter.ArticleAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,15 +15,16 @@
         android:layout_height="match_parent"
         tools:context=".ui.news.NewsFragment">
 
-        <include
-            layout="@layout/layout_recycler_view"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            bind:mAdapter="@{adapter}" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_news"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="4dp"
+            android:paddingBottom="16dp"
+            android:setCustomAdapter="@{adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/layout_article" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

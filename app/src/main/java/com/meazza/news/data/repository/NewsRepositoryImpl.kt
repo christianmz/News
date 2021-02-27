@@ -5,7 +5,6 @@ import com.meazza.news.business.repository.NewsRepository
 import com.meazza.news.business.util.Resource
 import com.meazza.news.data.repository.ds.local.LocalNewsDS
 import com.meazza.news.data.repository.ds.remote.RemoteNewsDS
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class NewsRepositoryImpl @Inject constructor(
@@ -17,15 +16,7 @@ class NewsRepositoryImpl @Inject constructor(
         return remoteDS.getNews()
     }
 
-    override suspend fun getBookmarks(): Flow<Resource<List<Article>>> {
-        TODO("Not yet implemented")
-    }
-
-    override suspend fun saveArticle(article: Article) {
-        TODO("Not yet implemented")
-    }
-
-    override suspend fun deleteArticle(article: Article) {
-        TODO("Not yet implemented")
+    override suspend fun searchNews(query: String, page: Int, pageSize: Int) {
+        remoteDS.searchNews(query, page, pageSize)
     }
 }
